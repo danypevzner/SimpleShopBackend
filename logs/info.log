@@ -1,0 +1,13 @@
+2026-05-26 10:25:05 INFO  [main] org.example.service.ProductService - Product created with id = 2
+2026-05-26 18:43:00 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
+2026-05-26 18:43:00 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
+2026-05-26 18:43:00 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-05-26 18:43:00 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
+2026-05-26 18:43:00 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
+2026-05-26 18:43:00 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
+2026-05-26 18:43:00 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
+2026-05-26 18:43:00 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-05-26 18:43:24 INFO  [main] org.example.service.OrderService - Product with product_id = 2 added to order with id = 1
+2026-05-26 18:43:24 INFO  [main] org.example.service.OrderService - Total price of order with id = 1 updated
+2026-05-26 18:43:31 INFO  [main] org.example.service.OrderService - Order with id =1 found
+2026-05-26 18:43:53 INFO  [main] org.example.service.OrderService - orders with user_id =1 found
