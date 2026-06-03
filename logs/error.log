@@ -1,0 +1,42 @@
+2026-06-03 12:05:58 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-03 12:05:58 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-03 12:05:58 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-06-03 12:05:59 WARN  [main] o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table orders_HQL add constraint FKc25jjhi0lhu5lbytws7qy3co8 foreign key (user_id) references user_HQL (user_id)" via JDBC [Cannot add or update a child row: a foreign key constraint fails (`def`.`#sql-1148_9`, CONSTRAINT `FKc25jjhi0lhu5lbytws7qy3co8` FOREIGN KEY (`user_id`) REFERENCES `user_hql` (`user_id`))]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table orders_HQL add constraint FKc25jjhi0lhu5lbytws7qy3co8 foreign key (user_id) references user_HQL (user_id)" via JDBC [Cannot add or update a child row: a foreign key constraint fails (`def`.`#sql-1148_9`, CONSTRAINT `FKc25jjhi0lhu5lbytws7qy3co8` FOREIGN KEY (`user_id`) REFERENCES `user_hql` (`user_id`))]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:446)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:941)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:960)
+	at org.example.config.HibernateConfiguration.<init>(HibernateConfiguration.java:26)
+	at org.example.config.HibernateConfiguration.getInstance(HibernateConfiguration.java:31)
+	at org.example.dao.impl.OrderDaoImpl.<init>(OrderDaoImpl.java:27)
+	at org.example.ui.OrderMenu.<init>(OrderMenu.java:24)
+	at org.example.ui.MainMenu.<init>(MainMenu.java:13)
+	at org.example.Main.main(Main.java:27)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`def`.`#sql-1148_9`, CONSTRAINT `FKc25jjhi0lhu5lbytws7qy3co8` FOREIGN KEY (`user_id`) REFERENCES `user_hql` (`user_id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 21 common frames omitted
+2026-06-03 12:07:55 ERROR [main] org.example.dao.impl.UserDaoImpl - No default constructor for entity 'org.example.model.User'
+2026-06-03 12:08:30 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-03 12:08:30 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-03 12:08:30 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-06-03 12:10:42 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-03 12:10:42 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-03 12:10:42 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-06-03 12:10:55 WARN  [main] org.example.service.OrderService - Order with id =2 is not modifiable

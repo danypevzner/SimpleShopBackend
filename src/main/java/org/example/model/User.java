@@ -1,15 +1,33 @@
 package org.example.model;
 
+import jakarta.persistence.*;
+
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Entity
+@Table(name = "user_HQL")
 public class User {
-    public User(String name, String email, String passwordHash, LocalDateTime createdAt) {
-        this.name = name;
-        this.email = email;
-        this.passwordHash = passwordHash;
-        this.createdAt = createdAt;
+    @Id
+    @GeneratedValue
+    private  int user_id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "email")
+    private String email;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Order> orders;
+
+    @Column (name = "passwordHash")
+    private String passwordHash;
+    @Column(name = "createdAt")
+    private LocalDateTime createdAt;
+
+    public User() {
     }
+
 
     public int getUser_id() {
         return user_id;
@@ -51,13 +69,9 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    private  int user_id;
-    private String name;
-    private String email;
-    private String passwordHash;
-    LocalDateTime createdAt;
 
-    public User(int user_id, String name, String email, String passwordHash, LocalDateTime createdAt) {
+
+    public User(String name, String email, String passwordHash, LocalDateTime createdAt) {
         this.user_id = user_id;
         this.name = name;
         this.email = email;

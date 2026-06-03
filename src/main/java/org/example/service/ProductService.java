@@ -45,7 +45,7 @@ public class ProductService {
     }
 
     public boolean alterProduct(int product_id,String name,BigDecimal price,int quantity){
-        Product product = new Product(product_id,name,price,quantity);
+        Product product = new Product(name,price,quantity);
         if (product.getProduct_id()<0){
             logger.warn("Failed to modify product - product_id<0");
             throw new IllegalArgumentException("product_id<0");
@@ -58,7 +58,7 @@ public class ProductService {
             logger.warn("Failed to modify product - has incorrect name length");
             throw new IllegalArgumentException("product has incorrect name length");
         }
-        Product existing = productDao.getProductById(product.getProduct_id());
+        Product existing = productDao.getProductById(product_id);
         ensureExists(existing);
         logger.info("Product with id = "+product_id+"altered");
         return productDao.alterProduct(product);

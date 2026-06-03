@@ -4,6 +4,7 @@ import org.example.config.Order_Status_Variants;
 import org.example.dao.impl.OrderDaoImpl;
 import org.example.dao.impl.OrderItemDaoImpl;
 import org.example.dao.impl.ProductDaoImpl;
+import org.example.dao.impl.UserDaoImpl;
 import org.example.model.Order;
 import org.example.model.OrderItem;
 import org.example.model.Product;
@@ -20,7 +21,7 @@ public class OrderMenu {
     public final ProductService productService;
     public final Scanner scanner;
     public OrderMenu() {
-        this.service = new OrderService(new OrderDaoImpl(),new ProductDaoImpl(),new OrderItemDaoImpl());
+        this.service = new OrderService(new OrderDaoImpl(),new ProductDaoImpl(),new OrderItemDaoImpl(),new UserDaoImpl());
         this.scanner = new Scanner(System.in);
         this.productService = new ProductService(new ProductDaoImpl());
     }

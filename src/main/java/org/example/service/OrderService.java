@@ -5,9 +5,11 @@ import org.example.dao.OrderDao;
 import org.example.dao.OrderItemDao;
 import org.example.dao.ProductDao;
 
+import org.example.dao.UserDao;
 import org.example.model.Order;
 import org.example.model.OrderItem;
 import org.example.model.Product;
+import org.example.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,19 +23,22 @@ public class OrderService {
     public final OrderDao orderDao;
     public final ProductDao productDao;
     public final OrderItemDao orderItemDao;
+    private final UserDao userDao;
     private final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
-    public OrderService(OrderDao orderDao, ProductDao productDao, OrderItemDao orderItemDao) {
+    public OrderService(OrderDao orderDao, ProductDao productDao, OrderItemDao orderItemDao,UserDao userDao) {
         this.orderDao = orderDao;
         this.productDao = productDao;
         this.orderItemDao = orderItemDao;
+        this.userDao = userDao;
     }
 
     public int createOrder(int user_id) {
         LocalDateTime creation_time = LocalDateTime.now();
         String status = Order_Status_Variants.CREATED.toString();
         BigDecimal totalPrice = BigDecimal.ZERO;
-        Order order = new Order(user_id, creation_time, status, totalPrice);
+        User user = userDao.getUserById(user_id);
+        Order order = new Order(user,creation_time, status, totalPrice);
         if (order.getTotalPrice().compareTo(BigDecimal.ZERO) == -1) {
             logger.warn("Failed to create order - totalPrice < 0");
             throw new RuntimeException("totalPrice is less than 0");
@@ -74,8 +79,9 @@ public class OrderService {
             logger.warn("Failed to get Orders by id - user_id <0");
             throw new IllegalArgumentException("user_id is less than 0");
         }
+        User user = userDao.getUserById(user_id);
         logger.info("orders with user_id ="+user_id+" found");
-        return orderDao.getOrdersByUserId(user_id);
+        return orderDao.getOrdersByUser(user);
     }
 
 
@@ -139,7 +145,8 @@ public class OrderService {
             logger.error("Failed to recalc total price - order_id < 0");
             throw new RuntimeException("Order_id < 0");
         }
-        List<OrderItem> items = orderItemDao.getItemsByOrder(order_id);
+        Order order = orderDao.getOrderByID(order_id);
+        List<OrderItem> items = orderItemDao.getItemsByOrder(order);
         BigDecimal total = items.stream()
                 .map(i -> i.getPrice().multiply(BigDecimal.valueOf(i.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -158,7 +165,7 @@ public class OrderService {
         }
 
         // 1. Создаём OrderItem
-        OrderItem item = new OrderItem(orderId, productId, quantity, product.getPrice());
+        OrderItem item = new OrderItem(order, product, quantity, product.getPrice());
         orderItemDao.addItem(item);
 
         // 2. Уменьшаем количество товара
@@ -173,11 +180,11 @@ public class OrderService {
         Order order = orderDao.getOrderByID(orderId);
         ensureExists(order);
         ensureModifiable(order);
-        OrderItem item = orderItemDao.getItemsByOrder(orderId).stream()
-                .filter(i -> i.getProduct_id() == itemId)
+        OrderItem item = orderItemDao.getItemsByOrder(order).stream()
+                .filter(i -> i.getProduct().getProduct_id() == itemId)
                 .findFirst().orElseThrow(() -> new RuntimeException("item not found"));
         orderItemDao.removeItem(item.getItem_id());
-        Product product = productDao.getProductById(item.getProduct_id());
+        Product product = productDao.getProductById(item.getProduct().getProduct_id());
         int newQuantity = product.getQuantity() + item.getQuantity();
         productDao.updateQuantity(product.getProduct_id(), newQuantity);
         logger.info("Product with id ="+product.getProduct_id()+" removed from order with id ="+orderId);

@@ -82,7 +82,7 @@ public class ProductsMenu {
             System.out.print("Enter quantity: ");
             Integer quantity = Integer.parseInt(scanner.nextLine());
 
-            Product p = new Product(id, name, price,quantity);
+            Product p = new Product(name, price,quantity);
             service.alterProduct(id, name, price,quantity);
 
             System.out.println("Product changed");

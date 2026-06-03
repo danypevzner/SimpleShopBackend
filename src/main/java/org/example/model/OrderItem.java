@@ -1,27 +1,37 @@
 package org.example.model;
 
-import java.math.BigDecimal;
+import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+@Entity @Table(name = "orderItems_HQL")
 public class OrderItem {
+    @Id
+    @GeneratedValue
     private int item_id;
-    private int order_id;
-    private int product_id;
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false) // Это устанавливает связь с Order
+    private Order order;
+
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false) // Это устанавливает связь с Order
+    private Product product;
+
+
+    @Column(name = "quantity")
     private int quantity;
+    @Column(name = "price")
     private BigDecimal price;
 
-    public OrderItem(int item_id, int order_id, int product_id, int quantity, BigDecimal price) {
-        this.item_id = item_id;
-        this.order_id = order_id;
-        this.product_id = product_id;
+
+    public OrderItem(Order order, Product product, int quantity, BigDecimal price) {
+        this.order = order;
+        this.product=product;
         this.quantity = quantity;
         this.price = price;
     }
 
-    public OrderItem(int order_id, int product_id, int quantity, BigDecimal price) {
-        this.order_id = order_id;
-        this.product_id = product_id;
-        this.quantity = quantity;
-        this.price = price;
+    public OrderItem() {
     }
 
     public int getItem_id() {
@@ -32,20 +42,20 @@ public class OrderItem {
         this.item_id = item_id;
     }
 
-    public int getOrder_id() {
-        return order_id;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrder_id(int order_id) {
-        this.order_id = order_id;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public int getProduct_id() {
-        return product_id;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProduct_id(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -66,6 +76,6 @@ public class OrderItem {
 
     @Override
     public String toString(){
-        return  item_id+"||"+order_id+"||"+product_id+"||"+quantity+"||"+price;
+        return  item_id+"||"+order+"||"+product.getProduct_id()+"||"+quantity+"||"+price;
     }
 }

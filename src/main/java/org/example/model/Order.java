@@ -1,28 +1,40 @@
 package org.example.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Entity
+@Table(name = "orders_HQL")
 public class Order {
+    @Id
+    @GeneratedValue
     private int order_id;
-    private int user_id;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderItem> items;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false) // Это устанавливает связь с Order
+    private User user;
+
+    @Column(name = "createdAt")
     private LocalDateTime created_at;
+    @Column(name = "status")
     private String status;
+    @Column(name = "totalPrice")
     private BigDecimal totalPrice;
 
-    public Order(Integer order_id, int user_id, LocalDateTime created_at, String status, BigDecimal totalPrice) {
-        this.order_id = order_id;
-        this.user_id = user_id;
+
+    public Order( User user, LocalDateTime created_at, String status, BigDecimal totalPrice) {
+        this.user = user;
         this.created_at = created_at;
         this.status = status;
         this.totalPrice = totalPrice;
     }
 
-    public Order( int user_id, LocalDateTime created_at, String status, BigDecimal totalPrice) {
-        this.user_id = user_id;
-        this.created_at = created_at;
-        this.status = status;
-        this.totalPrice = totalPrice;
+    public Order() {
     }
 
 
@@ -34,12 +46,12 @@ public class Order {
         this.order_id = order_id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser_id(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getCreated_at() {
@@ -67,6 +79,6 @@ public class Order {
     }
     @Override
     public String toString(){
-        return user_id+"||"+user_id+"||"+created_at+"||"+status+"||"+totalPrice;
+        return order_id+"||"+user.getUser_id()+"||"+created_at+"||"+status+"||"+totalPrice;
     }
 }

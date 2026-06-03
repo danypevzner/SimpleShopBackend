@@ -1,23 +1,24 @@
 package org.example.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "product_HQL")
 public class Product {
 
+    @Id
+    @GeneratedValue
     private  int product_id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "price")
     private BigDecimal price;
-
+    @Column(name = "quantity")
     private int quantity;
 
     public Product(String name, BigDecimal price, int quantity) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-    }
-
-    public Product(int product_id, String name, BigDecimal price, int quantity) {
-        this.product_id = product_id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
