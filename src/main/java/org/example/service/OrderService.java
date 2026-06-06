@@ -140,7 +140,7 @@ public class OrderService {
     }
 
 
-    public void recalcTotalPrice(int order_id) {
+    private void recalcTotalPrice(int order_id) {
         if (order_id < 0) {
             logger.error("Failed to recalc total price - order_id < 0");
             throw new RuntimeException("Order_id < 0");
@@ -154,7 +154,7 @@ public class OrderService {
         orderDao.updateTotalPrice(order_id, total);
     }
 
-    public void addProductToOrder(int orderId, int productId, int quantity) {
+    public boolean addProductToOrder(int orderId, int productId, int quantity) {
         Product product = productDao.getProductById(productId);
         Order order = orderDao.getOrderByID(orderId);
         ensureExists(order);
@@ -174,9 +174,10 @@ public class OrderService {
         logger.info("Product with product_id = "+productId+" added to order with id = "+orderId);
         // 3. Пересчитываем totalPrice
         recalcTotalPrice(orderId);
+        return true;
     }
 
-    public void removeProductFromOrder(int orderId, int itemId) {
+    public boolean removeProductFromOrder(int orderId, int itemId) {
         Order order = orderDao.getOrderByID(orderId);
         ensureExists(order);
         ensureModifiable(order);
@@ -189,12 +190,13 @@ public class OrderService {
         productDao.updateQuantity(product.getProduct_id(), newQuantity);
         logger.info("Product with id ="+product.getProduct_id()+" removed from order with id ="+orderId);
         recalcTotalPrice(orderId);
+        return true;
     }
 
     private void ensureExists(Order order) {
         if (order == null) {
             logger.warn("Order not found");
-            throw new RuntimeException("Order not exists");
+            throw new IllegalStateException("Order not exists");
         }
     }
 

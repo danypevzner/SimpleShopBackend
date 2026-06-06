@@ -1,6 +1,5 @@
 package org.example.dao.impl;
 
-import org.example.config.DBConnection;
 import org.example.config.HibernateConfiguration;
 import org.example.model.Product;
 import org.example.dao.ProductDao;
@@ -9,47 +8,34 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
 
     private static Logger logger = LoggerFactory.getLogger(ProductDaoImpl.class);
-    public ProductDaoImpl() {
-        try {
 
-            logger.info("archived DBConnection");
-        }
-        catch (Exception e){
-            logger.error(e.getMessage());
-            throw new RuntimeException(e);
-        }
-
-    }
 
         @Override
     public int createProduct(Product product) {
-
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
-            session.save(product);
+            session.persist(product);
             tx.commit();
             return product.getProduct_id();
-
         } catch (Exception e) {
             logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
-
-
     }
 
     @Override
     public Product getProductById(int id) {
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
             Product product =session.get(Product.class,id);
+            if (product == null) {
+                logger.warn("Product with id = {} not found",id);
+            }
             tx.commit();
             return product;
 
@@ -61,7 +47,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public List<Product> getAllProducts() {
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
             List<Product> results = session.createQuery("from Product",Product.class).list();
             tx.commit();
@@ -75,9 +61,14 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean alterProduct(Product product) {
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
-            session.update(product);
+            Product existing = getProductById(product.getProduct_id());
+            if (existing == null) {
+                logger.warn("Product with id = {} not found",product.getProduct_id());
+                return false;
+            }
+            session.merge(product);
             tx.commit();
             return true;
 
@@ -89,9 +80,15 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean removeProduct(int id) {
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
-            session.remove(session.get(Product.class,id));
+            Product product = getProductById(id);
+
+            if (product == null) {
+                logger.warn("Product with id = {} not found",product.getProduct_id());
+                return false;
+            }
+            session.remove(product);
             tx.commit();
             return true;
 
@@ -102,9 +99,13 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     public boolean updateQuantity(int productId,int quantity){
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
             Product product = session.get(Product.class,productId);
+            if (product == null) {
+                logger.warn("Product with id = {} not found",product.getProduct_id());
+                return false;
+            }
             product.setQuantity(quantity);
             session.update(product);
             tx.commit();

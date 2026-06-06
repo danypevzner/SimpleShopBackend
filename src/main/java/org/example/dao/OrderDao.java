@@ -13,5 +13,5 @@ public interface OrderDao {
     public List<Order> getOrdersByUser(User user);
     public boolean updateStatus(int order_id,String status);
     public boolean deleteOrderByID(int order_id);
-    public void updateTotalPrice(int order_id, BigDecimal new_total_price);
+    public boolean updateTotalPrice(int order_id, BigDecimal new_total_price);
 }

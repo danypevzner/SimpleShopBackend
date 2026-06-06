@@ -39,7 +39,7 @@ public class ProductService {
             throw new IllegalArgumentException("product_id<0");
         }
         Product product = productDao.getProductById(id);
-        ensureExists(product);
+        ensureExisting(product);
         logger.info("Product with id="+id+" found");
         return  product;
     }
@@ -59,7 +59,7 @@ public class ProductService {
             throw new IllegalArgumentException("product has incorrect name length");
         }
         Product existing = productDao.getProductById(product_id);
-        ensureExists(existing);
+        ensureExisting(existing);
         logger.info("Product with id = "+product_id+"altered");
         return productDao.alterProduct(product);
     }
@@ -68,6 +68,7 @@ public class ProductService {
         if (product_id<0){
             throw new IllegalArgumentException("product_id<0");
         }
+        ensureExisting(getProductById(product_id));
         boolean deleted = productDao.removeProduct(product_id);
         if (!deleted){
             logger.error("Failed to delete product - product not found");
@@ -82,10 +83,10 @@ public class ProductService {
         return productDao.getAllProducts();
     }
 
-    private void ensureExists(Product product){
+    private void ensureExisting(Product product){
         if (product==null){
             logger.warn("product not found");
-            throw new RuntimeException("product not found");
+            throw new IllegalStateException("product not found");
         }
     }
 

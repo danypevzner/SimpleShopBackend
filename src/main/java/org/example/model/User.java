@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.List;
 
 @Entity
@@ -81,6 +83,6 @@ public class User {
 
     @Override
     public String toString(){
-        return name+"||"+email+"||"+createdAt;
+        return name+"||"+email+"||"+ createdAt.truncatedTo(ChronoUnit.MILLIS);
     }
 }

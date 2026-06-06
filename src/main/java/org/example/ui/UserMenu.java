@@ -37,6 +37,7 @@ public class UserMenu {
                 case "0"->{
                     return;
                 }
+                default -> System.out.println("Uncommon option");
             }
         }
 

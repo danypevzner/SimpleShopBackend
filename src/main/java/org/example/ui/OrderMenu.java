@@ -53,7 +53,9 @@ public class OrderMenu {
                   case "7"->finalizeOrder();
                   case "8"->cancelOrder();
                   case "9"->deleteOrder();
+                  default-> System.out.println("Uncommon option");
               }
+
           }
     }
 

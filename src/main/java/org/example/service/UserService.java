@@ -54,7 +54,12 @@ public class UserService {
 
 
         public boolean alterUser(int user_id,String name, String email, String passwordHash, LocalDateTime creationTime) {
-        User user = new User(name,email,passwordHash,creationTime);
+            User user = userDao.getUserById(user_id);
+            ensureExisting(user);
+            user.setName(name);
+            user.setEmail(email);
+            user.setPasswordHash(passwordHash);
+
             if (user.getUser_id()<0){
                 logger.warn("Failed to alter user - userId<0");
                 throw new IllegalArgumentException("user_id<0");
@@ -67,8 +72,6 @@ public class UserService {
                 logger.warn("Failed to alter user - incorrect email format");
                 throw new IllegalArgumentException("email format incorrect");
             }
-            User existing = userDao.getUserById(user_id);
-            ensureExisting(existing);
             logger.info("user with id = "+user_id+" changed profile");
             return userDao.alterUser(user);
         }
@@ -89,7 +92,7 @@ public class UserService {
         private void ensureExisting(User user){
             if (user == null){
                 logger.warn("User not found ");
-                throw new RuntimeException("User not found");
+                throw new IllegalStateException("User not found");
             }
         }
 

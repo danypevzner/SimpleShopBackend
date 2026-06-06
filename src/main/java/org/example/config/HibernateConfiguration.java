@@ -26,14 +26,11 @@ public class HibernateConfiguration {
         factory = configuration.buildSessionFactory();
     }
 
-    public static HibernateConfiguration getInstance(){
+    public static SessionFactory getFactory(){
         if (instance == null){
            instance = new HibernateConfiguration();
         }
-        return instance;
+        return instance.factory;
     }
 
-     public SessionFactory getFactory(){
-        return this.factory;
-    }
 }

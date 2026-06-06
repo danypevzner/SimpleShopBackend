@@ -30,6 +30,7 @@ public class ProductsMenu {
                 case "3"->alterProduct();
                 case "4"->getAllProducts();
                 case "5"->deleteProductByID();
+                default -> System.out.println("Uncommon option");
 
             }
         }

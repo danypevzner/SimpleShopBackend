@@ -1,115 +1,337 @@
-2026-06-03 12:05:57 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
-2026-06-03 12:05:58 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:05:58 INFO  [main] org.example.service.ProductService - ProductService initialized
-2026-06-03 12:05:58 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
-2026-06-03 12:05:58 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
-2026-06-03 12:05:58 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-03 12:05:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2026-06-03 12:05:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
-2026-06-03 12:05:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
-2026-06-03 12:05:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2026-06-03 12:05:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2026-06-03 12:05:59 INFO  [main] o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: org.example.model.User (class must be instantiated by Interceptor)
-2026-06-03 12:05:59 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03 12:05:59 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@126f8f24] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-06-03 12:06:00 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:06:00 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
-2026-06-03 12:06:00 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
-2026-06-03 12:06:00 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:06:00 INFO  [main] org.example.service.ProductService - ProductService initialized
-2026-06-03 12:06:29 INFO  [main] org.example.service.UserService - User created with id =1
-2026-06-03 12:07:37 INFO  [main] org.example.service.ProductService - Product created with id = 1
-2026-06-03 12:07:43 INFO  [main] org.example.service.ProductService - Product list shown
-2026-06-03 12:07:55 INFO  [main] o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
-org.hibernate.InstantiationException: No default constructor for entity 'org.example.model.User'
-	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:93)
-	at org.hibernate.persister.entity.AbstractEntityPersister.instantiate(AbstractEntityPersister.java:4553)
-	at org.hibernate.internal.SessionImpl.instantiate(SessionImpl.java:1483)
-	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.instantiateEntity(AbstractEntityInitializer.java:681)
-	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveEntityInstance(AbstractEntityInitializer.java:674)
-	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveInstance(AbstractEntityInitializer.java:640)
-	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveEntityInstance(AbstractEntityInitializer.java:558)
-	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveInstance(AbstractEntityInitializer.java:402)
-	at org.hibernate.sql.results.internal.InitializersList.resolveInstances(InitializersList.java:88)
-	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:108)
-	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86)
-	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:182)
-	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
-	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:145)
-	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:117)
-	at org.hibernate.loader.ast.internal.SingleIdEntityLoaderStandardImpl.load(SingleIdEntityLoaderStandardImpl.java:75)
-	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:3715)
-	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3704)
-	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:604)
-	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromCacheOrDatasource(DefaultLoadEventListener.java:590)
-	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:560)
-	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:544)
-	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:207)
-	at org.hibernate.event.internal.DefaultLoadEventListener.loadWithRegularProxy(DefaultLoadEventListener.java:290)
-	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:242)
-	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:111)
-	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:68)
-	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
-	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1242)
-	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1230)
-	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:209)
-	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.doLoad(IdentifierLoadAccessImpl.java:160)
-	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.lambda$load$1(IdentifierLoadAccessImpl.java:149)
-	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.perform(IdentifierLoadAccessImpl.java:112)
-	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:149)
-	at org.hibernate.internal.SessionImpl.get(SessionImpl.java:1038)
-	at org.example.dao.impl.UserDaoImpl.getUserById(UserDaoImpl.java:50)
-	at org.example.service.OrderService.createOrder(OrderService.java:40)
-	at org.example.ui.OrderMenu.createOrder(OrderMenu.java:66)
-	at org.example.ui.OrderMenu.readCommands(OrderMenu.java:47)
-	at org.example.ui.MainMenu.readCommands(MainMenu.java:27)
-	at org.example.Main.main(Main.java:28)
-2026-06-03 12:08:30 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
-2026-06-03 12:08:30 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:08:30 INFO  [main] org.example.service.ProductService - ProductService initialized
-2026-06-03 12:08:30 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
-2026-06-03 12:08:30 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
-2026-06-03 12:08:30 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-03 12:08:30 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2026-06-03 12:08:30 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
-2026-06-03 12:08:30 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
-2026-06-03 12:08:30 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2026-06-03 12:08:30 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2026-06-03 12:08:31 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03 12:08:31 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2eda2062] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-06-03 12:08:31 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:08:31 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
-2026-06-03 12:08:31 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
-2026-06-03 12:08:31 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:08:31 INFO  [main] org.example.service.ProductService - ProductService initialized
-2026-06-03 12:08:40 INFO  [main] org.example.service.OrderService - Order created with id = 2
-2026-06-03 12:08:49 INFO  [main] org.example.service.OrderService - Product with product_id = 1 added to order with id = 2
-2026-06-03 12:08:49 INFO  [main] org.example.service.OrderService - Total price of order with id = 2 updated
-2026-06-03 12:08:59 INFO  [main] org.example.service.OrderService - Order with id = 2 status changed to PAID
-2026-06-03 12:10:42 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
-2026-06-03 12:10:42 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:10:42 INFO  [main] org.example.service.ProductService - ProductService initialized
-2026-06-03 12:10:42 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
-2026-06-03 12:10:42 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
-2026-06-03 12:10:42 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-03 12:10:42 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2026-06-03 12:10:42 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
-2026-06-03 12:10:42 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
-2026-06-03 12:10:42 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2026-06-03 12:10:42 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2026-06-03 12:10:43 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03 12:10:43 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2eda2062] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-06-03 12:10:43 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:10:43 INFO  [main] o.example.dao.impl.OrderItemDaoImpl - archived DBConnection
-2026-06-03 12:10:43 INFO  [main] org.example.dao.impl.UserDaoImpl - archived DBConnection
-2026-06-03 12:10:43 INFO  [main] org.example.dao.impl.ProductDaoImpl - archived DBConnection
-2026-06-03 12:10:43 INFO  [main] org.example.service.ProductService - ProductService initialized
-2026-06-03 12:11:12 INFO  [main] org.example.service.OrderService - Order with id = 2 deleted
-2026-06-03 12:11:16 INFO  [main] org.example.service.OrderService - Order with id = 1 deleted
-2026-06-03 12:11:21 INFO  [main] org.example.service.OrderService - Order created with id = 52
-2026-06-03 12:11:32 INFO  [main] org.example.service.OrderService - Product with product_id = 1 added to order with id = 52
-2026-06-03 12:11:32 INFO  [main] org.example.service.OrderService - Total price of order with id = 52 updated
+2026-06-06 13:30:44 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:30:44 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:30:44 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:30:44 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:30:44 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:30:44 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:30:44 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:30:44 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:30:46 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:30:46 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3dea226b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:30:46 INFO  [main] org.example.service.ProductService - Product created with id = 102
+2026-06-06 13:30:46 INFO  [main] org.example.service.ProductService - Product list shown
+2026-06-06 13:30:47 INFO  [main] org.example.service.ProductService - Product with id = 102 removed
+2026-06-06 13:31:32 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:31:32 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:31:32 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:31:33 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:31:33 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:31:33 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:31:33 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:31:33 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:31:34 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:31:34 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e5a8718] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:31:34 INFO  [main] org.example.service.ProductService - Product created with id = 152
+2026-06-06 13:31:34 INFO  [main] org.example.service.ProductService - Product list shown
+2026-06-06 13:31:35 INFO  [main] org.example.service.ProductService - Product with id = 152 removed
+2026-06-06 13:34:36 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:34:36 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:34:36 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:34:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:34:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:34:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:34:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:34:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:34:38 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:34:38 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e5a8718] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:34:38 INFO  [main] org.example.service.ProductService - Product created with id = 202
+2026-06-06 13:34:38 INFO  [main] org.example.service.ProductService - Product with id=202 found
+2026-06-06 13:34:38 INFO  [main] org.example.service.ProductService - Product with id = 202 removed
+2026-06-06 13:37:04 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:37:04 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:37:04 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:37:04 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:37:04 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:37:04 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:37:04 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:37:04 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:37:06 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:37:06 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e5a8718] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:37:06 INFO  [main] org.example.service.ProductService - Product created with id = 252
+2026-06-06 13:37:06 INFO  [main] org.example.service.ProductService - Product with id = 252 removed
+2026-06-06 13:39:10 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:39:10 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:39:11 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:39:11 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:39:11 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:39:11 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:39:11 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:39:11 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:39:12 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:39:12 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e5a8718] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:39:13 INFO  [main] org.example.service.ProductService - Product created with id = 302
+2026-06-06 13:39:13 INFO  [main] org.example.service.ProductService - Product with id = 302 removed
+2026-06-06 13:42:29 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:42:29 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:42:29 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:42:29 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:42:29 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:42:29 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:42:29 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:42:29 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:42:31 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:42:31 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e5a8718] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:42:31 INFO  [main] org.example.service.ProductService - Product created with id = 352
+2026-06-06 13:42:31 INFO  [main] org.example.service.ProductService - Product with id=352 found
+2026-06-06 13:42:31 INFO  [main] org.example.service.ProductService - Product with id = 352 removed
+2026-06-06 13:42:35 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 13:42:36 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 13:42:36 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 13:42:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 13:42:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 13:42:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 13:42:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 13:42:36 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 13:42:37 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 13:42:38 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e5a8718] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 13:42:38 INFO  [main] org.example.service.ProductService - Product created with id = 402
+2026-06-06 13:42:38 INFO  [main] org.example.service.ProductService - Product with id=402 found
+2026-06-06 13:42:38 INFO  [main] org.example.service.ProductService - Product with id = 402 removed
+2026-06-06 14:10:42 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:10:43 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:10:43 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:10:43 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:10:43 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:10:43 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:10:43 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:10:44 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:10:44 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:11:58 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:11:58 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:11:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:11:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:11:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:11:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:11:58 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:12:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:12:00 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:13:56 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:13:56 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:13:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:13:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:13:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:13:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:13:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:13:58 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:13:58 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:17:05 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:17:05 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:17:06 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:17:06 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:17:06 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:17:06 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:17:06 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:17:07 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:17:07 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5fb7ab9c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:20:53 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:20:53 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:20:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:20:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:20:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:20:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:20:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:20:55 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:20:55 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5fb7ab9c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:20:55 INFO  [main] org.example.service.UserService - User created with id =1502
+2026-06-06 14:21:50 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:21:50 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:21:51 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:21:51 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:21:51 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:21:51 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:21:51 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:21:52 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:21:52 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3af36922] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:21:52 INFO  [main] org.example.service.UserService - User created with id =1552
+2026-06-06 14:22:32 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:22:32 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:22:32 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:22:32 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:22:32 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:22:32 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:22:32 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:22:34 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:22:34 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3af36922] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:22:34 INFO  [main] org.example.service.UserService - User created with id =1602
+2026-06-06 14:22:34 INFO  [main] org.example.service.OrderService - Order created with id = 252
+2026-06-06 14:22:34 INFO  [main] org.example.service.OrderService - Order with id = 252 deleted
+2026-06-06 14:22:59 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:22:59 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:22:59 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:22:59 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:22:59 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:22:59 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:22:59 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:23:01 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:23:01 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:23:01 INFO  [main] org.example.service.UserService - User created with id =1652
+2026-06-06 14:23:01 INFO  [main] org.example.service.OrderService - Order created with id = 302
+2026-06-06 14:23:01 INFO  [main] org.example.service.OrderService - Order with id =302 found
+2026-06-06 14:23:01 INFO  [main] org.example.service.OrderService - Order with id = 302 deleted
+2026-06-06 14:23:51 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:23:51 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:23:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:23:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:23:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:23:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:23:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:23:53 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:23:53 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:23:53 INFO  [main] org.example.service.UserService - User created with id =1702
+2026-06-06 14:23:54 INFO  [main] org.example.service.OrderService - Order created with id = 352
+2026-06-06 14:23:54 INFO  [main] org.example.service.OrderService - Order with id =352 found
+2026-06-06 14:23:54 INFO  [main] org.example.service.OrderService - Order with id = 352 deleted
+2026-06-06 14:25:56 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:25:57 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:25:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:25:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:25:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:25:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:25:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:25:58 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:25:58 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:25:59 INFO  [main] org.example.service.UserService - User created with id =1752
+2026-06-06 14:25:59 INFO  [main] org.example.service.OrderService - Order created with id = 402
+2026-06-06 14:25:59 INFO  [main] org.example.service.OrderService - All orders found with 1results
+2026-06-06 14:25:59 INFO  [main] org.example.service.OrderService - Order with id = 402 deleted
+2026-06-06 14:33:21 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:33:21 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:33:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:33:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:33:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:33:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:33:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:33:23 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:33:23 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3af36922] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:33:23 INFO  [main] org.example.service.UserService - User created with id =1802
+2026-06-06 14:33:23 INFO  [main] org.example.service.OrderService - Order created with id = 452
+2026-06-06 14:33:23 INFO  [main] org.example.service.OrderService - Order with id =452 found
+2026-06-06 14:33:23 INFO  [main] org.example.service.OrderService - orders with user_id =1802 found
+2026-06-06 14:33:23 INFO  [main] org.example.service.OrderService - Order with id = 452 deleted
+2026-06-06 14:39:48 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:39:48 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:39:49 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:39:49 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:39:49 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:39:49 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:39:49 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:39:50 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:39:50 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:39:51 INFO  [main] org.example.service.UserService - User created with id =1852
+2026-06-06 14:39:51 INFO  [main] org.example.service.OrderService - Order created with id = 502
+2026-06-06 14:39:51 INFO  [main] org.example.service.OrderService - Order with id =502 found
+2026-06-06 14:39:51 INFO  [main] org.example.service.OrderService - Order with id = 502 deleted
+2026-06-06 14:41:00 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:41:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:41:01 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:41:01 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:41:01 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:41:01 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:41:01 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:41:02 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:41:02 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@609b041c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:41:02 INFO  [main] org.example.service.UserService - User created with id =1902
+2026-06-06 14:41:03 INFO  [main] org.example.service.OrderService - Order created with id = 552
+2026-06-06 14:41:03 INFO  [main] org.example.service.OrderService - Order with id =552 found
+2026-06-06 14:41:03 INFO  [main] org.example.service.OrderService - Order with id = 552 status changed to TEST_VALUE
+2026-06-06 14:41:03 INFO  [main] org.example.service.OrderService - Order with id =552 found
+2026-06-06 14:41:03 INFO  [main] org.example.service.OrderService - Order with id = 552 status changed to CREATED
+2026-06-06 14:41:03 INFO  [main] org.example.service.OrderService - Order with id = 552 deleted
+2026-06-06 14:43:52 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:43:52 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:43:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:43:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:43:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:43:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:43:52 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:43:54 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:43:54 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3af36922] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:43:54 INFO  [main] org.example.service.UserService - User created with id =1952
+2026-06-06 14:43:54 INFO  [main] org.example.service.OrderService - Order created with id = 602
+2026-06-06 14:43:54 INFO  [main] org.example.service.OrderService - Order with id =602 found
+2026-06-06 14:43:54 INFO  [main] org.example.service.OrderService - Order with id = 602 deleted
+2026-06-06 14:51:21 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 14:51:21 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 14:51:21 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 14:51:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 14:51:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 14:51:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 14:51:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 14:51:21 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 14:51:23 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 14:51:23 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5fb7ab9c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 14:51:23 INFO  [main] org.example.service.UserService - User created with id =2002
+2026-06-06 14:51:23 INFO  [main] org.example.service.ProductService - Product created with id = 452
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order created with id = 652
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id =652 found
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id = 652 status changed to TEST_VALUE
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id =652 found
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id = 652 status changed to CREATED
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id = 652 deleted
+2026-06-06 14:51:23 INFO  [main] org.example.service.UserService - User created with id =2003
+2026-06-06 14:51:23 INFO  [main] org.example.service.ProductService - Product created with id = 453
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order created with id = 653
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id =653 found
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id = 653 deleted
+2026-06-06 14:51:23 INFO  [main] org.example.service.UserService - User created with id =2004
+2026-06-06 14:51:23 INFO  [main] org.example.service.ProductService - Product created with id = 454
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order created with id = 654
+2026-06-06 14:51:23 INFO  [main] org.example.service.OrderService - Order with id =654 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - All orders found with 1results
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id = 654 deleted
+2026-06-06 14:51:24 INFO  [main] org.example.service.UserService - User created with id =2005
+2026-06-06 14:51:24 INFO  [main] org.example.service.ProductService - Product created with id = 455
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order created with id = 655
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id =655 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id = 655 deleted
+2026-06-06 14:51:24 INFO  [main] org.example.service.UserService - User created with id =2006
+2026-06-06 14:51:24 INFO  [main] org.example.service.ProductService - Product created with id = 456
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order created with id = 656
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id =656 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id = 656 deleted
+2026-06-06 14:51:24 INFO  [main] org.example.service.UserService - User created with id =2007
+2026-06-06 14:51:24 INFO  [main] org.example.service.ProductService - Product created with id = 457
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order created with id = 657
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id =657 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - orders with user_id =2007 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id = 657 deleted
+2026-06-06 14:51:24 INFO  [main] org.example.service.UserService - User created with id =2008
+2026-06-06 14:51:24 INFO  [main] org.example.service.ProductService - Product created with id = 458
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order created with id = 658
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id =658 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id =658 found
+2026-06-06 14:51:24 INFO  [main] org.example.service.OrderService - Order with id = 658 deleted
+2026-06-06 16:14:57 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 16:14:57 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 16:14:57 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 16:14:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 16:14:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 16:14:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 16:14:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 16:14:57 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 16:14:59 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 16:14:59 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5fb7ab9c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 16:14:59 INFO  [main] org.example.service.UserService - User created with id =2052
+2026-06-06 16:14:59 INFO  [main] org.example.service.ProductService - Product created with id = 502
+2026-06-06 16:14:59 INFO  [main] org.example.service.OrderService - Order created with id = 702
+2026-06-06 16:14:59 INFO  [main] org.example.service.OrderService - Order with id =702 found
+2026-06-06 16:15:00 INFO  [main] org.example.service.OrderService - Order with id = 702 deleted
+2026-06-06 16:15:52 INFO  [main] org.example.service.ProductService - ProductService initialized
+2026-06-06 16:15:53 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.0.Final
+2026-06-06 16:15:53 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-06 16:15:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2026-06-06 16:15:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/def]
+2026-06-06 16:15:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=root, user=root}
+2026-06-06 16:15:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-06-06 16:15:53 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2026-06-06 16:15:54 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-06 16:15:54 INFO  [main] org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5fb7ab9c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-06 16:15:55 INFO  [main] org.example.service.UserService - User created with id =2102
+2026-06-06 16:15:55 INFO  [main] org.example.service.ProductService - Product created with id = 552
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Order created with id = 752
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Order with id =752 found
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Product with product_id = 552 added to order with id = 752
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Total price of order with id = 752 updated
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Product with id =552 removed from order with id =752
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Total price of order with id = 752 updated
+2026-06-06 16:15:55 INFO  [main] org.example.service.OrderService - Order with id = 752 deleted

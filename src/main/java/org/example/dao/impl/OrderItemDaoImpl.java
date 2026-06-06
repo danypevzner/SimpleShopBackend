@@ -1,11 +1,9 @@
 package org.example.dao.impl;
 
-import org.example.config.DBConnection;
 import org.example.config.HibernateConfiguration;
 import org.example.dao.OrderItemDao;
 import org.example.model.Order;
 import org.example.model.OrderItem;
-import org.example.model.Product;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -17,22 +15,12 @@ import java.util.List;
 public class OrderItemDaoImpl implements OrderItemDao {
 
     private static  Logger logger = LoggerFactory.getLogger(OrderItemDaoImpl.class);
-    public OrderItemDaoImpl() {
-        try {
-
-            logger.info("archived DBConnection");
-        }
-        catch (Exception e){
-            logger.error(e.getMessage());
-            throw new RuntimeException(e.getMessage());
-        }
-    }
 
     @Override
     public int addItem(OrderItem item) {
-        try(Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try(Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx= session.beginTransaction();
-            session.save(item);
+            session.persist(item);
             tx.commit();
             return item.getItem_id();
         }catch (Exception e){
@@ -44,9 +32,13 @@ public class OrderItemDaoImpl implements OrderItemDao {
 
     @Override
     public boolean removeItem(int item_id) {
-        try(Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try(Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx= session.beginTransaction();
             OrderItem item  =session.get(OrderItem.class,item_id);
+            if (item == null) {
+                logger.warn("Item with ID {} not found", item_id);
+                return false; // Item не найден
+            }
             session.remove(item);
             tx.commit();
             return true;
@@ -60,7 +52,7 @@ public class OrderItemDaoImpl implements OrderItemDao {
     @Override
     public List<OrderItem> getItemsByOrder(Order order) {
         List<OrderItem> results;
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()){
+        try (Session session = HibernateConfiguration.getFactory().openSession()){
             Transaction tx = session.beginTransaction();
             Query<OrderItem> query = session.createQuery("FROM OrderItem where order = :order",OrderItem.class);
             query.setParameter("order",order);
@@ -76,7 +68,7 @@ public class OrderItemDaoImpl implements OrderItemDao {
 
     @Override
     public boolean deleteItemsByOrder(int order_id) {
-        try (Session session = HibernateConfiguration.getInstance().getFactory().openSession()) {
+        try (Session session = HibernateConfiguration.getFactory().openSession()) {
             Transaction tx = session.beginTransaction();
             try {
                 int rows = session.createQuery("DELETE FROM OrderItem WHERE order.id = :orderId")
